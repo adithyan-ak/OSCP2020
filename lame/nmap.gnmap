@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Fri Apr  3 13:43:41 2020 as: nmap -sC -sV -p21,3632 -oA nmap 10.10.10.3
+Host: 10.10.10.3 ()	Status: Up
+Host: 10.10.10.3 ()	Ports: 21/open/tcp//ftp//vsftpd 2.3.4/, 3632/open/tcp//distccd//distccd v1 ((GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4))/
+# Nmap done at Fri Apr  3 13:43:52 2020 -- 1 IP address (1 host up) scanned in 11.44 seconds
