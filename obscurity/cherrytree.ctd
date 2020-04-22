@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<cherrytree>
+	<node custom_icon_id="0" foreground="" is_bold="True" name="Obscurity" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1587539739.18" ts_lastsave="1587539858.14" unique_id="1">
+		<rich_text></rich_text>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Source code http://10.10.10.168:8080" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1587539778.8" ts_lastsave="1587539791.94" unique_id="2">
+			<rich_text>Message to server devs: the current source code for the web server is in 'SuperSecureServer.py'</rich_text>
+		</node>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="creds" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1587539858.14" ts_lastsave="1587539903.91" unique_id="4">
+			<rich_text>secure@obscure.htb
+obscure.htb
+</rich_text>
+		</node>
+	</node>
+</cherrytree>

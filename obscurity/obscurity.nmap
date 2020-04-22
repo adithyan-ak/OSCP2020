@@ -1,0 +1,85 @@
+# Nmap 7.80 scan initiated Wed Apr 22 12:31:18 2020 as: nmap -sC -sV -o Obscurity.nmap 10.10.10.168
+Nmap scan report for 10.10.10.168
+Host is up (0.19s latency).
+Not shown: 996 filtered ports
+PORT     STATE  SERVICE    VERSION
+22/tcp   open   ssh        OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 33:d3:9a:0d:97:2c:54:20:e1:b0:17:34:f4:ca:70:1b (RSA)
+|   256 f6:8b:d5:73:97:be:52:cb:12:ea:8b:02:7c:34:a3:d7 (ECDSA)
+|_  256 e8:df:55:78:76:85:4b:7b:dc:70:6a:fc:40:cc:ac:9b (ED25519)
+80/tcp   closed http
+8080/tcp open   http-proxy BadHTTPServer
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Date: Wed, 22 Apr 2020 07:04:47
+|     Server: BadHTTPServer
+|     Last-Modified: Wed, 22 Apr 2020 07:04:47
+|     Content-Length: 4171
+|     Content-Type: text/html
+|     Connection: Closed
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8">
+|     <title>0bscura</title>
+|     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+|     <meta name="viewport" content="width=device-width, initial-scale=1">
+|     <meta name="keywords" content="">
+|     <meta name="description" content="">
+|     <!-- 
+|     Easy Profile Template
+|     http://www.templatemo.com/tm-467-easy-profile
+|     <!-- stylesheet css -->
+|     <link rel="stylesheet" href="css/bootstrap.min.css">
+|     <link rel="stylesheet" href="css/font-awesome.min.css">
+|     <link rel="stylesheet" href="css/templatemo-blue.css">
+|     </head>
+|     <body data-spy="scroll" data-target=".navbar-collapse">
+|     <!-- preloader section -->
+|     <!--
+|     <div class="preloader">
+|_    <div class="sk-spinner sk-spinner-wordpress">
+|_http-server-header: BadHTTPServer
+|_http-title: 0bscura
+9000/tcp closed cslistener
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.80%I=7%D=4/22%Time=5E9FEBD2%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,10FC,"HTTP/1\.1\x20200\x20OK\nDate:\x20Wed,\x2022\x20Apr\x2020
+SF:20\x2007:04:47\nServer:\x20BadHTTPServer\nLast-Modified:\x20Wed,\x2022\
+SF:x20Apr\x202020\x2007:04:47\nContent-Length:\x204171\nContent-Type:\x20t
+SF:ext/html\nConnection:\x20Closed\n\n<!DOCTYPE\x20html>\n<html\x20lang=\"
+SF:en\">\n<head>\n\t<meta\x20charset=\"utf-8\">\n\t<title>0bscura</title>\
+SF:n\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20content=\"IE=Edge\">\n\t<
+SF:meta\x20name=\"viewport\"\x20content=\"width=device-width,\x20initial-s
+SF:cale=1\">\n\t<meta\x20name=\"keywords\"\x20content=\"\">\n\t<meta\x20na
+SF:me=\"description\"\x20content=\"\">\n<!--\x20\nEasy\x20Profile\x20Templ
+SF:ate\nhttp://www\.templatemo\.com/tm-467-easy-profile\n-->\n\t<!--\x20st
+SF:ylesheet\x20css\x20-->\n\t<link\x20rel=\"stylesheet\"\x20href=\"css/boo
+SF:tstrap\.min\.css\">\n\t<link\x20rel=\"stylesheet\"\x20href=\"css/font-a
+SF:wesome\.min\.css\">\n\t<link\x20rel=\"stylesheet\"\x20href=\"css/templa
+SF:temo-blue\.css\">\n</head>\n<body\x20data-spy=\"scroll\"\x20data-target
+SF:=\"\.navbar-collapse\">\n\n<!--\x20preloader\x20section\x20-->\n<!--\n<
+SF:div\x20class=\"preloader\">\n\t<div\x20class=\"sk-spinner\x20sk-spinner
+SF:-wordpress\">\n")%r(HTTPOptions,10FC,"HTTP/1\.1\x20200\x20OK\nDate:\x20
+SF:Wed,\x2022\x20Apr\x202020\x2007:04:47\nServer:\x20BadHTTPServer\nLast-M
+SF:odified:\x20Wed,\x2022\x20Apr\x202020\x2007:04:47\nContent-Length:\x204
+SF:171\nContent-Type:\x20text/html\nConnection:\x20Closed\n\n<!DOCTYPE\x20
+SF:html>\n<html\x20lang=\"en\">\n<head>\n\t<meta\x20charset=\"utf-8\">\n\t
+SF:<title>0bscura</title>\n\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20co
+SF:ntent=\"IE=Edge\">\n\t<meta\x20name=\"viewport\"\x20content=\"width=dev
+SF:ice-width,\x20initial-scale=1\">\n\t<meta\x20name=\"keywords\"\x20conte
+SF:nt=\"\">\n\t<meta\x20name=\"description\"\x20content=\"\">\n<!--\x20\nE
+SF:asy\x20Profile\x20Template\nhttp://www\.templatemo\.com/tm-467-easy-pro
+SF:file\n-->\n\t<!--\x20stylesheet\x20css\x20-->\n\t<link\x20rel=\"stylesh
+SF:eet\"\x20href=\"css/bootstrap\.min\.css\">\n\t<link\x20rel=\"stylesheet
+SF:\"\x20href=\"css/font-awesome\.min\.css\">\n\t<link\x20rel=\"stylesheet
+SF:\"\x20href=\"css/templatemo-blue\.css\">\n</head>\n<body\x20data-spy=\"
+SF:scroll\"\x20data-target=\"\.navbar-collapse\">\n\n<!--\x20preloader\x20
+SF:section\x20-->\n<!--\n<div\x20class=\"preloader\">\n\t<div\x20class=\"s
+SF:k-spinner\x20sk-spinner-wordpress\">\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Apr 22 12:32:02 2020 -- 1 IP address (1 host up) scanned in 43.18 seconds
