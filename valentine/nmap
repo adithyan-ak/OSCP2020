@@ -1,0 +1,35 @@
+# Nmap 7.91 scan initiated Fri Dec 18 12:36:42 2020 as: nmap -sC -sV -T5 -A -o nmap 10.10.10.79
+Nmap scan report for 10.10.10.79
+Host is up (0.17s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 5.9p1 Debian 5ubuntu1.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 96:4c:51:42:3c:ba:22:49:20:4d:3e:ec:90:cc:fd:0e (DSA)
+|   2048 46:bf:1f:cc:92:4f:1d:a0:42:b3:d2:16:a8:58:31:33 (RSA)
+|_  256 e6:2b:25:19:cb:7e:54:cb:0a:b9:ac:16:98:c6:7d:a9 (ECDSA)
+80/tcp  open  http     Apache httpd 2.2.22 ((Ubuntu))
+|_http-server-header: Apache/2.2.22 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+443/tcp open  ssl/http Apache httpd 2.2.22 ((Ubuntu))
+|_http-server-header: Apache/2.2.22 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+| ssl-cert: Subject: commonName=valentine.htb/organizationName=valentine.htb/stateOrProvinceName=FL/countryName=US
+| Not valid before: 2018-02-06T00:45:25
+|_Not valid after:  2019-02-06T00:45:25
+|_ssl-date: 2020-12-18T07:15:30+00:00; +8m18s from scanner time.
+Aggressive OS guesses: Linux 2.6.32 - 3.5 (95%), Linux 3.0 (95%), Linux 2.6.38 - 3.0 (94%), Nokia N9 phone (Linux 2.6.32) (94%), Linux 3.2 (94%), Linux 2.6.38 - 2.6.39 (94%), Linux 2.6.39 (94%), Linux 3.5 (93%), Linux 2.6.32 - 3.10 (93%), Linux 2.6.32 - 3.9 (93%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: 8m17s
+
+TRACEROUTE (using port 110/tcp)
+HOP RTT       ADDRESS
+1   169.00 ms 10.10.14.1
+2   169.16 ms 10.10.10.79
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Dec 18 12:37:13 2020 -- 1 IP address (1 host up) scanned in 30.73 seconds

@@ -1,0 +1,5 @@
+# Nmap 7.91 scan initiated Thu Dec 17 21:26:04 2020 as: nmap -p 53 -vv -oA dcs 10.10.10.48
+# Ports scanned: TCP(1;53) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.10.48 ()	Status: Up
+Host: 10.10.10.48 ()	Ports: 53/open/tcp//domain///
+# Nmap done at Thu Dec 17 21:26:05 2020 -- 1 IP address (1 host up) scanned in 0.57 seconds
