@@ -1,0 +1,21 @@
+Starting finger-user-enum v1.0 ( http://pentestmonkey.net/tools/finger-user-enum )
+
+ ----------------------------------------------------------
+|                   Scan Information                       |
+ ----------------------------------------------------------
+
+Worker Processes ......... 5
+Usernames file ........... ../../wordlists/secLists/Usernames/names/names.txt
+Target count ............. 1
+Username count ........... 10177
+Target TCP port .......... 79
+Query timeout ............ 5 secs
+Relay Server ............. Not used
+
+######## Scan started at Fri Dec 18 16:51:43 2020 #########
+access@10.10.10.76: access No Access User                     < .  .  .  . >..nobody4  SunOS 4.x NFS Anonym               < .  .  .  . >..
+admin@10.10.10.76: Login       Name               TTY         Idle    When    Where..adm      Admin                              < .  .  .  . >..lp       Line Printer Admin                 < .  .  .  . >..uucp     uucp Admin                         < .  .  .  . >..nuucp    uucp Admin                         < .  .  .  . >..dladm    Datalink Admin                     < .  .  .  . >..listen   Network Admin                      < .  .  .  . >..
+anne marie@10.10.10.76: Login       Name               TTY         Idle    When    Where..anne                  ???..marie                 ???..
+bin@10.10.10.76: bin             ???                         < .  .  .  . >..
+dee dee@10.10.10.76: Login       Name               TTY         Idle    When    Where..dee                   ???..dee                   ???..
+jo ann@10.10.10.76: Login       Name               TTY         Idle    When    Where..jo                    ???..ann                   ???..

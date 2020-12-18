@@ -1,0 +1,21 @@
+# Nmap 7.91 scan initiated Fri Dec 18 15:17:49 2020 as: nmap -sC -sV -A -T5 -o nmap 10.10.10.76
+Warning: 10.10.10.76 giving up on port because retransmission cap hit (2).
+Nmap scan report for 10.10.10.76
+Host is up (0.25s latency).
+Not shown: 900 closed ports, 98 filtered ports
+PORT    STATE SERVICE VERSION
+79/tcp  open  finger  Sun Solaris fingerd
+|_finger: No one logged on\x0D
+111/tcp open  rpcbind 2-4 (RPC #100000)
+Aggressive OS guesses: Sun Solaris 10 (94%), Sun OpenSolaris 2008.11 (94%), Sun Solaris 9 or 10, or OpenSolaris 2009.06 snv_111b (94%), Sun Solaris 9 or 10 (SPARC) (92%), Sun Storage 7210 NAS device (92%), Sun Solaris 9 or 10 (92%), Oracle Solaris 11 (91%), Sun Solaris 8 (SPARC) (91%), Sun Solaris 8 (91%), Sun Solaris 9 (90%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: OS: Solaris; CPE: cpe:/o:sun:sunos
+
+TRACEROUTE (using port 53/tcp)
+HOP RTT       ADDRESS
+1   257.11 ms 10.10.14.1
+2   256.92 ms 10.10.10.76
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Dec 18 15:18:53 2020 -- 1 IP address (1 host up) scanned in 64.06 seconds

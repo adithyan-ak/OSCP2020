@@ -1,0 +1,18 @@
+Starting finger-user-enum v1.0 ( http://pentestmonkey.net/tools/finger-user-enum )
+
+ ----------------------------------------------------------
+|                   Scan Information                       |
+ ----------------------------------------------------------
+
+Worker Processes ......... 5
+Target count ............. 1
+Username count ........... 1
+Target TCP port .......... 79
+Query timeout ............ 5 secs
+Relay Server ............. Not used
+
+######## Scan started at Fri Dec 18 16:50:11 2020 #########
+######## Scan completed at Fri Dec 18 16:50:16 2020 #########
+0 results.
+
+1 queries in 5 seconds (0.2 queries / sec)
