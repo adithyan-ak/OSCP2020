@@ -1,0 +1,48 @@
+cat .bash_history
+ls
+cat aliases
+lskeys
+ls keys
+ls keys/CVS
+cd keys
+ls
+file CVS
+cd CVS
+ls
+ls Root
+cat Root/Root
+cd Root
+ls
+file Root
+cat Root
+cd /
+ls
+cd /home
+ls
+cd djmardov
+ls
+ls *
+cd /tmp
+ls
+clear
+clear
+ls
+cd /
+ls
+cd /var/www/html
+ls
+cd /tmp
+sudo -i
+cd /home/ircd
+clear
+ls
+ls -lah
+cd ..
+ls
+cd djmardov
+ls
+cd Documents
+ls -lah
+cat .backup
+clear
+exit
