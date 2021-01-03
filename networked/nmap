@@ -1,0 +1,25 @@
+# Nmap 7.91 scan initiated Sat Dec 19 17:49:09 2020 as: nmap -sC -sV -o nmap -A -T5 10.10.10.146
+Nmap scan report for 10.10.10.146
+Host is up (0.17s latency).
+Not shown: 997 filtered ports
+PORT    STATE  SERVICE VERSION
+22/tcp  open   ssh     OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 22:75:d7:a7:4f:81:a7:af:52:66:e5:27:44:b1:01:5b (RSA)
+|   256 2d:63:28:fc:a2:99:c7:d4:35:b9:45:9a:4b:38:f9:c8 (ECDSA)
+|_  256 73:cd:a0:5b:84:10:7d:a7:1c:7c:61:1d:f5:54:cf:c4 (ED25519)
+80/tcp  open   http    Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)
+|_http-server-header: Apache/2.4.6 (CentOS) PHP/5.4.16
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+443/tcp closed https
+Aggressive OS guesses: Linux 3.10 - 4.11 (94%), Linux 5.1 (92%), Linux 3.2 - 4.9 (91%), Linux 3.13 (90%), Linux 3.13 or 4.2 (90%), Linux 4.10 (90%), Linux 4.2 (90%), Linux 4.4 (90%), Asus RT-AC66U WAP (90%), Linux 3.11 - 3.12 (90%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT       ADDRESS
+1   168.21 ms 10.10.14.1
+2   168.26 ms 10.10.10.146
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Dec 19 17:49:35 2020 -- 1 IP address (1 host up) scanned in 26.72 seconds

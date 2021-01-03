@@ -1,0 +1,4 @@
+Discovered open port 80/tcp on 10.10.10.160                                    
+Discovered open port 6379/tcp on 10.10.10.160                                  
+Discovered open port 22/tcp on 10.10.10.160                                    
+Discovered open port 10000/tcp on 10.10.10.160                                 

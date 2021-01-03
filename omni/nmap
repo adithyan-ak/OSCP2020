@@ -1,0 +1,28 @@
+# Nmap 7.91 scan initiated Mon Dec 21 20:09:02 2020 as: nmap -sC -sV -o nmap -A -T5 10.10.10.204
+Nmap scan report for 10.10.10.204
+Host is up (0.21s latency).
+Not shown: 998 filtered ports
+PORT     STATE SERVICE VERSION
+135/tcp  open  msrpc   Microsoft Windows RPC
+8080/tcp open  upnp    Microsoft IIS httpd
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Basic realm=Windows Device Portal
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Site doesn't have a title.
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows XP|2008 (87%)
+OS CPE: cpe:/o:microsoft:windows_xp::sp3 cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows XP SP3 (87%), Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+TRACEROUTE (using port 135/tcp)
+HOP RTT       ADDRESS
+1   231.88 ms 10.10.14.1
+2   231.95 ms 10.10.10.204
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Dec 21 20:09:31 2020 -- 1 IP address (1 host up) scanned in 30.26 seconds

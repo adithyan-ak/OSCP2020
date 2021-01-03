@@ -1,0 +1,21 @@
+# Nmap 7.91 scan initiated Mon Dec 21 17:27:37 2020 as: nmap -sC -sV -o nmap -A -T5 10.10.10.191
+Nmap scan report for 10.10.10.191
+Host is up (0.17s latency).
+Not shown: 998 filtered ports
+PORT   STATE  SERVICE VERSION
+21/tcp closed ftp
+80/tcp open   http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-generator: Blunder
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Blunder | A blunder of interesting facts
+Aggressive OS guesses: Linux 5.0 (94%), Linux 5.0 - 5.4 (94%), Linux 5.4 (92%), HP P2000 G3 NAS device (91%), Linux 4.15 - 5.6 (91%), Linux 5.3 - 5.4 (90%), Linux 2.6.32 (90%), Linux 2.6.32 - 3.1 (90%), Linux 5.0 - 5.3 (90%), Linux 5.1 (90%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+TRACEROUTE (using port 21/tcp)
+HOP RTT       ADDRESS
+1   169.63 ms 10.10.14.1
+2   169.64 ms 10.10.10.191
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Dec 21 17:28:04 2020 -- 1 IP address (1 host up) scanned in 26.98 seconds

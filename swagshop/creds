@@ -1,0 +1,7 @@
+<host>localhost</host>
+<username>root</username>
+<password>fMVWh7bDHpgZkyfqQXreTjU9</password>
+<dbname>swagshop</dbname>
+<initStatements>SET NAMES utf8</initStatements>
+<model>mysql4</model>
+<type>pdo_mysql</type>
